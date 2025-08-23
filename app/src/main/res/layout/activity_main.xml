@@ -8,15 +8,15 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/fredoka_regular"
-        android:padding="16dp"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textSize="32sp"
-        android:textStyle="bold" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:title="@string/app_name"
+        app:titleTextColor="@android:color/black"
+        app:titleTextAppearance="@style/ToolbarTitleText"
+        app:menu="@menu/menu_main" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewHabits"
@@ -25,5 +25,6 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="6"
         tools:listitem="@layout/habit_item" />
+
 
 </LinearLayout>

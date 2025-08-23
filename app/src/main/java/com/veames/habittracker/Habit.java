@@ -1,7 +1,13 @@
 package com.veames.habittracker;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "habits")
 public class Habit {
 
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String title;
     private String description;
@@ -12,6 +18,11 @@ public class Habit {
         this.title = title;
         this.description = description;
         this.category = category;
+    }
+
+    @Ignore
+    public Habit(String title, String description, Category category) {
+        this(0, title, description, category);
     }
 
     public int getId() {

@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.HabitTracker" parent="Base.Theme.HabitTracker" />
+
+    <!-- стиль текста тулбара -->
+    <style name="ToolbarTitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="fontFamily">@font/fredoka_regular</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

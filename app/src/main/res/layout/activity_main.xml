@@ -9,19 +9,21 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        tools:text="Habit Tracker"
-        android:textStyle="bold"
         android:fontFamily="@font/fredoka_regular"
-        android:textSize="32sp"/>
+        android:padding="16dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewHabits"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/habit_item"
-        tools:itemCount="6"/>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="6"
+        tools:listitem="@layout/habit_item" />
 
 </LinearLayout>

@@ -7,8 +7,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerViewHabits;
+    private MainViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +28,20 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        initViews();
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        HabitsAdapter habitsAdapter = new HabitsAdapter();
+        recyclerViewHabits.setAdapter(habitsAdapter);
+        viewModel.getHabits().observe(this, new Observer<List<Habit>>() {
+            @Override
+            public void onChanged(List<Habit> habits) {
+                habitsAdapter.setHabits(habits);
+            }
+        });
     }
+
+    private void initViews() {
+        recyclerViewHabits = findViewById(R.id.recyclerViewHabits);
+    }
+
 }
